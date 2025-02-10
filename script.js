@@ -18,6 +18,7 @@ async function fetchQuestions() {
     questions = data.results;
     console.log(questions);
     displayQuestion();
+
   } catch (error) {
     return console.error("Error fetching data:", error);
   }
@@ -35,6 +36,7 @@ function displayQuestion() {
     // Create a question element
     const questionText = document.createElement("div");
     questionText.classList.add("question");
+
     questionText.innerHTML = `<strong>${element.question}</strong>`;
     quizContainer.appendChild(questionText);
 
@@ -47,9 +49,11 @@ function displayQuestion() {
 
     // Loop through the list and create radio buttons
     allAnswers.forEach((answer) => {
+      
       // Create radio button input
       const optionsContainer = document.createElement("div");
       optionsContainer.classList.add("options");
+
       const radioButton = document.createElement("input");
       radioButton.type = "radio";
       radioButton.id = answer;
@@ -70,7 +74,7 @@ function displayQuestion() {
       quizContainer.appendChild(document.createElement("br"));
     });
   } else {
-    
+
     // If there are no more questions
     quizContainer.innerHTML = `<h2>Quiz Finished! Your score is: ${score} out of ${questions.length}</h2>`;
   }
@@ -81,6 +85,7 @@ function submitSelection() {
   const selectedOption = document.querySelector('input[name="answer"]:checked');
 
   if (selectedOption) {
+    
     // Display the selected answer
     document.getElementById("selectedAnswer").textContent =
       "You selected: " + selectedOption.value;
