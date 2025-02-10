@@ -4,6 +4,8 @@ let questionNumber = 0;
 let correct_answer = "";
 let score = 0;
 
+// Questions
+
 // Fetch questions from the API
 async function fetchQuestions() {
   const apiUrl =
