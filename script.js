@@ -1,4 +1,5 @@
 let questions = null;
+
 const quizContainer = document.querySelector("#quiz-container");
 let questionNumber = 0;
 let correct_answer = "";
@@ -27,6 +28,7 @@ function displayQuestion() {
   if (questions && questionNumber < questions.length) {
     let element = questions[questionNumber];
     console.log(element);
+
     // Clear any existing content
     quizContainer.innerHTML = "";
 
@@ -63,10 +65,12 @@ function displayQuestion() {
       optionsContainer.appendChild(radioButton);
       optionsContainer.appendChild(label);
       quizContainer.appendChild(optionsContainer);
+
       // Add line break for each option
       quizContainer.appendChild(document.createElement("br"));
     });
   } else {
+    
     // If there are no more questions
     quizContainer.innerHTML = `<h2>Quiz Finished! Your score is: ${score} out of ${questions.length}</h2>`;
   }
@@ -96,6 +100,7 @@ function submitSelection() {
     setTimeout(() => {
       displayQuestion();
     }, 1000);
+
   } else {
     // If no option is selected, display an alert
     document.getElementById("selectedAnswer").textContent =
@@ -104,6 +109,7 @@ function submitSelection() {
 }
 
 function restartQuiz() {
+  
   // Reset variables
   questionNumber = 0;
   score = 0;
