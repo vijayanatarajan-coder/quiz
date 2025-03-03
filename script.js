@@ -12,7 +12,6 @@ async function fetchQuestions() {
     const response = await fetch(apiUrl);
     const data = await response.json();
     questions = data.results;
-    console.log(questions);
     displayQuestion();
   } catch (error) {
     return console.error("Error fetching data:", error);
@@ -22,7 +21,6 @@ async function fetchQuestions() {
 function displayQuestion() {
   if (questions && questionNumber < questions.length) {
     let element = questions[questionNumber];
-    console.log(element);
     quizContainer.innerHTML = "";
 
     const questionText = document.createElement("div");
